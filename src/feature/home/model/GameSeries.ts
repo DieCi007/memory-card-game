@@ -3,3 +3,5 @@ export enum GameSeries {
     ANIMAL_CROSSING = 'Animal Crossing',
     POKEMON = 'Pokemon'
 }
+
+export const VALID_SERIES: string[] = Object.values(GameSeries);

@@ -1,0 +1,26 @@
+import styles from './PlayCard.module.scss';
+import { useEffect } from 'react';
+
+interface PlayCardProps {
+    background: string;
+    rotate: boolean;
+    click: () => void;
+    index: number;
+}
+
+const PlayCard = (props: PlayCardProps) => {
+    useEffect(() => {
+    }, []);
+
+    return (
+        <div className={styles.container}>
+            <div onClick={() => props.click()}
+                 className={`${styles.card} ${props.rotate ? styles.rotate : ''}`}>
+                <div className={styles.front}/>
+                <div className={styles.back} style={{backgroundImage: `url(${props.background})`}}/>
+            </div>
+        </div>
+    )
+}
+
+export default PlayCard;

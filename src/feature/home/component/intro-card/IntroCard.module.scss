@@ -1,0 +1,26 @@
+@import "../../../../assets/theme/variables";
+
+.card {
+  background-image: url("../../../../assets/img/card-background.jpeg");
+  height: 27rem;
+  width: 20rem;
+  background-size: contain;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 50ms linear;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+
+  .cardName {
+    position: absolute;
+    bottom: 3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-light;
+  }
+}
