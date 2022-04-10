@@ -1,0 +1,6 @@
+@import "assets/theme/variables";
+
+.container {
+  background: radial-gradient(circle at 50% -20%, $primary-light, $primary 60%);
+  width: 100vw;
+}
