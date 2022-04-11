@@ -104,12 +104,15 @@ const Game = () => {
 
     return (
         <div className={styles.container}>
-            {
-                gameCharacters.map((char, i) => (
-                    <PlayCard index={i} click={() => onCardClick(i)} key={i} background={char.image}
-                              rotate={char.rotate}/>
-                ))
-            }
+            <div onClick={() => navigate('/home')} className={styles.backBtn}>Change Game Series</div>
+            <section className={styles.cards}>
+                {
+                    gameCharacters.map((char, i) => (
+                        <PlayCard index={i} click={() => onCardClick(i)} key={i} background={char.image}
+                                  rotate={char.rotate}/>
+                    ))
+                }
+            </section>
         </div>
     )
 }

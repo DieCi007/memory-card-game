@@ -1,5 +1,6 @@
 import styles from './IntroCard.module.scss'
 import { useNavigate } from 'react-router-dom';
+import Tilt from 'react-parallax-tilt';
 
 interface IntroCardProps {
     name: string,
@@ -10,10 +11,14 @@ const IntroCard = (props: IntroCardProps) => {
     const navigate = useNavigate();
 
     return (
-        <div className={styles.card} onClick={() => navigate('/game',
-            {state: {series: props.name, key: props.seriesKey}})}>
-            <div className={styles.cardName}>{props.name}</div>
-        </div>
+        <Tilt perspective={980} glareEnable={true}
+              glareMaxOpacity={0.45}
+              scale={1.02}>
+            <div className={styles.card} onClick={() => navigate('/game',
+                {state: {series: props.name, key: props.seriesKey}})}>
+                <div className={styles.cardName}>{props.name}</div>
+            </div>
+        </Tilt>
     )
 }
 

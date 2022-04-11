@@ -1,7 +1,7 @@
 @import "../../../../assets/theme/variables";
 
 .card {
-  background-image: url("../../../../assets/img/card-background.jpeg");
+  background: url("../../../../assets/img/card-background.jpeg") round;
   height: 27rem;
   width: 20rem;
   background-size: contain;
@@ -10,17 +10,27 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  transition: transform 50ms linear;
-
-  &:hover {
-    transform: scale(0.95);
-  }
+  box-shadow:  9px 9px 29px $primary-light,
+  -9px -9px 29px $primary;
 
   .cardName {
     position: absolute;
     bottom: 3rem;
     font-size: 1.5rem;
     font-weight: 700;
-    color: $primary-light;
+    color: $body;
+  }
+}
+
+@media #{$smartphone} {
+  .card {
+    height: 14rem;
+    width: 9rem;
+
+    .cardName {
+      bottom: 1.5rem;
+      font-size: 1rem;
+      text-align: center;
+    }
   }
 }
