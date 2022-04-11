@@ -20,10 +20,10 @@ const Home = () => {
     }, [])
 
     return (
-        (state.seriesKeys.length === 0) ? <div>Loading...</div> :
+        (state.seriesKeys.length === 0) ? <div data-testid="Home">Loading...</div> :
             <div className={styles.container}>
                 <div className={styles.title}>Choose your favourite Game Series</div>
-                <section className={styles.cards}> {state.seriesKeys.map(series => (
+                <section className={styles.cards} data-testid={'intro-cards'}> {state.seriesKeys.map(series => (
                     <IntroCard key={series.key} name={series.name} seriesKey={series.key}/>
                 ))}
                 </section>

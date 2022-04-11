@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import styles from './App.module.scss';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { AppContext, appStateReducer, INITIAL_STATE } from './shared/AppStateReducer'
 
@@ -11,7 +11,7 @@ function App() {
     const [state, dispatch] = useReducer(appStateReducer, INITIAL_STATE);
     return (
         <AppContext.Provider value={{state, dispatch}}>
-            <div className={styles.container}>
+            <div className={styles.container} data-testid="app">
                 {/*Bypass http error when hosting on github pages*/}
                 <Helmet>
                     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>

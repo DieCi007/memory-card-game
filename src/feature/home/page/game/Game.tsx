@@ -66,7 +66,6 @@ const Game = () => {
         openCard(i);
         setTimeout(() => {
             // wait for animation
-            console.log('last selection ' + lastSelection)
             lastSelection !== null ? handleSecondSelection(i) : setLastSelection(i);
         }, 500);
     }
@@ -103,7 +102,7 @@ const Game = () => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid="game">
             <div onClick={() => navigate('/home')} className={styles.backBtn}>Change Game Series</div>
             <section className={styles.cards}>
                 {
