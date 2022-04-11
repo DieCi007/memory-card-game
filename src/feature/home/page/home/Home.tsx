@@ -1,25 +1,29 @@
 import styles from './home.module.scss';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { client } from '../../api/AmiiboClient';
-import { ISeriesKey } from '../../model/ISeriesKey';
 import { VALID_SERIES } from '../../model/GameSeries';
 import IntroCard from '../../component/intro-card/IntroCard';
+import { AppContext } from '../../../../shared/AppStateReducer';
 
 const validSeries: string[] = VALID_SERIES;
 
 const Home = () => {
-    const [allSeriesKeys, setAllSeriesKeys] = useState<ISeriesKey[]>([]);
+    const {state, dispatch} = useContext(AppContext);
 
     useEffect(() => {
-        client.getSeriesKeys().then(data => setAllSeriesKeys(data?.amiibo
-            .filter(series => validSeries.includes(series.name))));
+        if (state.seriesKeys.length === 0) {
+            client.getSeriesKeys().then(data => dispatch!({
+                seriesKeys: data?.amiibo
+                    .filter(series => validSeries.includes(series.name))
+            }));
+        }
     }, [])
 
     return (
-        (allSeriesKeys.length === 0) ? <div>Loading...</div> :
+        (state.seriesKeys.length === 0) ? <div>Loading...</div> :
             <div className={styles.container}>
-                <div className={styles.title}>Choose your preferred Game Series</div>
-                <section className={styles.cards}> {allSeriesKeys.map(series => (
+                <div className={styles.title}>Choose your favourite Game Series</div>
+                <section className={styles.cards}> {state.seriesKeys.map(series => (
                     <IntroCard key={series.key} name={series.name} seriesKey={series.key}/>
                 ))}
                 </section>
