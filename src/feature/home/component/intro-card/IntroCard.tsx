@@ -14,7 +14,7 @@ const IntroCard = (props: IntroCardProps) => {
         <Tilt perspective={980} glareEnable={true}
               glareMaxOpacity={0.45}
               scale={1.02}>
-            <div className={styles.card} onClick={() => navigate('/game',
+            <div data-testId='intro-card' className={styles.card} onClick={() => navigate('/game',
                 {state: {series: props.name, key: props.seriesKey}})}>
                 <div className={styles.cardName}>{props.name}</div>
             </div>

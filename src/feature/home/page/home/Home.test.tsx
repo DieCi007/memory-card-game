@@ -31,13 +31,22 @@ describe('<Home/>', () => {
         await waitFor(async () => {
             expect(screen.getByTestId('intro-cards'))
                 .toBeInTheDocument();
+            expect(screen.getByText('Pokemon')).toBeInTheDocument();
         });
     })
 })
 
 const mockedResponse = [
     {
-        "key": "0x00",
-        "name": "Super Smash Bros."
+        "key": "0x0e",
+        "name": "Mario Sports Superstars"
     },
+    {
+        "key": "0x05",
+        "name": "Animal Crossing"
+    },
+    {
+        "key": "0x0d",
+        "name": "Pokemon"
+    }
 ];

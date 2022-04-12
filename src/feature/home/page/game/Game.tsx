@@ -107,7 +107,7 @@ const Game = () => {
             <section className={styles.cards}>
                 {
                     gameCharacters.map((char, i) => (
-                        <PlayCard index={i} click={() => onCardClick(i)} key={i} background={char.image}
+                        <PlayCard click={() => onCardClick(i)} key={i} background={char.image}
                                   rotate={char.rotate}/>
                     ))
                 }

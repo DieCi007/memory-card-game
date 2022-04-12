@@ -5,7 +5,6 @@ interface PlayCardProps {
     background: string;
     rotate: boolean;
     click: () => void;
-    index: number;
 }
 
 const PlayCard = (props: PlayCardProps) => {
@@ -13,11 +12,11 @@ const PlayCard = (props: PlayCardProps) => {
     }, []);
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testId='play-card'>
             <div onClick={() => props.click()}
                  className={`${styles.card} ${props.rotate ? styles.rotate : ''}`}>
                 <div className={styles.front}/>
-                <div className={styles.back} style={{backgroundImage: `url(${props.background})`}}/>
+                <div data-testId='card-background' className={styles.back} style={{backgroundImage: `url(${props.background})`}}/>
             </div>
         </div>
     )
