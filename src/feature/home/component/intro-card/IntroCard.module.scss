@@ -10,8 +10,7 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  box-shadow:  9px 9px 29px $primary-light,
-  -9px -9px 29px $primary;
+  box-shadow: 2px 2px 12px $gray;
 
   .cardName {
     position: absolute;
